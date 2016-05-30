@@ -1,0 +1,109 @@
+.selected {
+    background-color: #CFD8DC !important;
+    color: white;
+}
+
+.header-text{
+    color: #FFF;
+}
+
+.heroes {
+    margin: 0 0 2em 0;
+    list-style-type: none;
+    padding: 0;
+    width: 15em;
+}
+.heroes li {
+    cursor: pointer;
+    position: relative;
+    left: 0;
+    background-color: #EEE;
+    margin: .5em;
+    padding: .3em 0;
+    height: 1.6em;
+    border-radius: 4px;
+}
+.heroes li.selected:hover {
+    background-color: #BBD8DC !important;
+    color: white;
+}
+.heroes li:hover {
+    color: #607D8B;
+    background-color: #DDD;
+    left: .1em;
+}
+.heroes .text {
+    position: relative;
+    top: -3px;
+}
+.heroes .badge {
+    display: inline-block;
+    font-size: small;
+    color: white;
+    padding: 0.8em 0.7em 0 0.7em;
+    background-color: #607D8B;
+    line-height: 1em;
+    position: relative;
+    left: -1px;
+    top: -4px;
+    height: 1.8em;
+    margin-right: .8em;
+    border-radius: 4px 0 0 4px;
+}
+
+.footer-icon {
+    background: url("/images/logo-nav.png") 0 8px no-repeat;
+    display: block;
+    height: 56px;
+    /* width: 135px; */
+    overflow: hidden;
+    text-indent: -3000px;
+    margin: 0;
+    padding: 0;
+}
+
+.hero.is-large {
+    height: 478px;
+    padding-top: 16px;
+    text-align: center;
+}
+.hero {
+    position: relative;
+    padding: 80px 48px 56px;
+    height: 80px;
+}
+.background-superhero-paper {
+    background: url("/images/superhero-paper.png") bottom center no-repeat;
+    background-size: 100%;
+    background-position: fixed;
+}
+
+.hero .hero-logo {
+    position: relative;
+    padding-top: 224px;
+    opacity: 1;
+    width: 560px;
+    margin: 24px auto 40px auto;
+    font-weight: 400;
+}
+.text-headline, .docs-content h3 {
+    margin: 0 0 16px 0;
+    font-size: 24px;
+    font-weight: 450;
+    opacity: .87;
+    line-height: 32px;
+}
+
+.hero .hero-logo:after {
+    content: '';
+    background: url("/images/angular.svg") top center no-repeat;
+    background-size: contain;
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    height: 224px;
+}
+.new-task{
+    margin: 10px 0;
+}

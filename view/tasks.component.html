@@ -1,0 +1,72 @@
+
+<h3>Task Management</h3>
+<!--
+<ul class="heroes">
+    <li *ngFor="let task of tasks" (click)="onSelect(task)" [class.selected]="task === selectedHero">
+    <span class="hero-element">
+      <span class="badge">{{task.Id}}</span> {{task.Subject}}
+    </span>
+        <button class="delete-button" (click)="delete(hero, $event)">Delete</button>
+    </li>
+</ul>
+<button (click)="addHero()">Add New Hero</button>
+<div *ngIf="addingHero">
+    <my-hero-detail (close)="close($event)"></my-hero-detail>
+</div>
+<div *ngIf="selectedHero">
+    <h2>
+        {{selectedHero.Subject | uppercase}} is my hero
+    </h2>
+    <button (click)="gotoDetail()">View Details</button>
+</div>
+-->
+<div class="container-fluid new-task">
+    <form class="form-horizontal" (ngSubmit)="addTa()" #heroForm="ngForm">
+        <fieldset>
+            <legend>Legend</legend>
+            <div class="form-group">
+                <label  class="col-lg-2 control-label">Subject</label>
+                <div class="col-lg-6">
+                    <input type="text" class="form-control"  [(ngModel)]="newTask.Subject"  placeholder="Subject" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label  class="col-lg-2 control-label">Start Date</label>
+                <div class="col-lg-2">
+                    <input type="date" class="form-control" placeholder="Start Date"  [(ngModel)]="newTask.StartDate" required>
+                </div>
+                <label class="col-lg-2 control-label">Due Date</label>
+                <div class="col-lg-2">
+                    <input type="date" class="form-control" placeholder="Due Date" [(ngModel)]="newTask.DueDate" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-lg-6 col-lg-offset-2">
+                    <button class="btn btn-default" >Add new</button>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+</div>
+<table class="table table-striped table-hover table-bordered">
+    <thead>
+    <tr>
+        <th>#</th>
+        <th>Subject</th>
+        <th>Created Date</th>
+        <th>Start Date</th>
+        <th>Due Date</th>
+        <th>Completed Date</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let task of tasks; let i = index">
+        <td>{{i+1}}</td>
+        <td>{{task.Subject}}</td>
+        <td>{{task.CreatedDate | date:"MM/dd/yyyy"}}</td>
+        <td>{{task.StartDate  | date:"MM/dd/yyyy"}}</td>
+        <td>{{task.DueDate | date:"MM/dd/yyyy"}}</td>
+        <td>{{task.CompletedDate | date:"MM/dd/yyyy"}}</td>
+    </tr>
+    </tbody>
+</table>
