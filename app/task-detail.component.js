@@ -52,9 +52,10 @@ var TaskDetailComponent = (function () {
             selector: 'task-detail',
             templateUrl: 'app/task-detail.component.html'
         }), 
-        __metadata('design:paramtypes', [task_service_1.TaskService, router_deprecated_1.RouteParams])
+        __metadata('design:paramtypes', [task_service_1.TaskService, (typeof (_a = typeof router_deprecated_1.RouteParams !== 'undefined' && router_deprecated_1.RouteParams) === 'function' && _a) || Object])
     ], TaskDetailComponent);
     return TaskDetailComponent;
+    var _a;
 }());
 exports.TaskDetailComponent = TaskDetailComponent;
 //# sourceMappingURL=task-detail.component.js.map

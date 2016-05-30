@@ -98,9 +98,10 @@ var TasksComponent = (function () {
             templateUrl: './view/tasks.component.html',
             directives: [task_detail_component_1.TaskDetailComponent]
         }), 
-        __metadata('design:paramtypes', [router_deprecated_1.Router, task_service_1.TaskService])
+        __metadata('design:paramtypes', [(typeof (_a = typeof router_deprecated_1.Router !== 'undefined' && router_deprecated_1.Router) === 'function' && _a) || Object, task_service_1.TaskService])
     ], TasksComponent);
     return TasksComponent;
+    var _a;
 }());
 exports.TasksComponent = TasksComponent;
 //# sourceMappingURL=task.component.js.map
