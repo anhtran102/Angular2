@@ -11,7 +11,8 @@ import {HashLocationStrategy, LocationStrategy} from "@angular/common";
 
 @Component({
     selector: 'my-app',
-    templateUrl: './view/app.component.html',
+    moduleId: module.id,
+    templateUrl: 'app.component.html',
     directives:
     [
         ROUTER_DIRECTIVES,

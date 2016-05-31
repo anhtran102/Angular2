@@ -22,14 +22,8 @@ var TasksComponent = (function () {
     }
     TasksComponent.prototype.getHeroes = function () {
         var _this = this;
-        /*  this.taskService
-                  .getTaskes()
-                  .then(t => this.tasks = t)
-                  .catch(error => this.error = error); // TODO: Display error message
-      */
         this.taskService.getTaskes().subscribe(function (data) {
             data.forEach(function (t) {
-                console.log(moment(t.CompletedDate).toDate());
                 t.CompletedDate = moment(t.CompletedDate).toDate();
                 t.CreatedDate = moment(t.CreatedDate).toDate();
                 t.DueDate = moment(t.DueDate).toDate();
@@ -39,15 +33,17 @@ var TasksComponent = (function () {
         }, function (error) { return console.log(error); });
     };
     TasksComponent.prototype.addNewTask = function () {
-        this.taskService.save(this.newTask);
-    };
-    TasksComponent.prototype.addTa = function () {
         var _this = this;
-        if (!this.newTask) {
-            return;
-        }
-        this.taskService.save(this.newTask)
-            .then(function (t) { return _this.tasks.push(t); }, function (error) { return _this.error = error; });
+        //this.taskService.save(this.newTask);
+        this.taskService.post2(this.newTask)
+            .subscribe(function (data) {
+            data.CompletedDate = moment(data.CompletedDate).toDate();
+            data.CreatedDate = moment(data.CreatedDate).toDate();
+            data.DueDate = moment(data.DueDate).toDate();
+            data.StartDate = moment(data.StartDate).toDate();
+            _this.tasks.push(data);
+            _this.newTask = new task_1.Task(0, '', '', '', '', '', 0);
+        }, function (error) { return console.log(error); });
     };
     TasksComponent.prototype.addHero = function () {
         this.addingHero = true;
@@ -59,18 +55,23 @@ var TasksComponent = (function () {
             this.getHeroes();
         }
     };
-    TasksComponent.prototype.delete = function (hero, event) {
+    TasksComponent.prototype.deleteTask = function (id) {
         var _this = this;
         event.stopPropagation();
-        this.taskService
-            .delete(hero)
-            .then(function (res) {
-            _this.tasks = _this.tasks.filter(function (h) { return h !== hero; });
-            if (_this.selectedTask === hero) {
-                _this.selectedTask = null;
-            }
-        })
-            .catch(function (error) { return _this.error = error; }); // TODO: Display error message
+        var r = confirm("Are you really want to delete?");
+        if (r == true) {
+            this.taskService
+                .delete(id)
+                .subscribe(function (data) {
+                data.forEach(function (t) {
+                    t.CompletedDate = moment(t.CompletedDate).toDate();
+                    t.CreatedDate = moment(t.CreatedDate).toDate();
+                    t.DueDate = moment(t.DueDate).toDate();
+                    t.StartDate = moment(t.StartDate).toDate();
+                });
+                _this.tasks = data;
+            }, function (error) { return console.log(error); });
+        }
     };
     TasksComponent.prototype.ngOnInit = function () {
         this.getHeroes();
@@ -87,21 +88,21 @@ var TasksComponent = (function () {
         this.selectedTask = hero;
         this.addingHero = false;
     };
-    TasksComponent.prototype.gotoDetail = function (task) {
-        var link = ['TaskDetail', { id: task.id }];
+    TasksComponent.prototype.gotoDetail = function (id) {
+        var link = ['TaskDetail', { id: id }];
         this.router.navigate(link);
     };
     TasksComponent = __decorate([
         core_1.Component({
             selector: 'my-tasks',
+            moduleId: module.id,
             // pipes: [DateFormatPipe],
-            templateUrl: './view/tasks.component.html',
+            templateUrl: 'tasks.component.html',
             directives: [task_detail_component_1.TaskDetailComponent]
         }), 
-        __metadata('design:paramtypes', [(typeof (_a = typeof router_deprecated_1.Router !== 'undefined' && router_deprecated_1.Router) === 'function' && _a) || Object, task_service_1.TaskService])
+        __metadata('design:paramtypes', [router_deprecated_1.Router, task_service_1.TaskService])
     ], TasksComponent);
     return TasksComponent;
-    var _a;
 }());
 exports.TasksComponent = TasksComponent;
 //# sourceMappingURL=task.component.js.map

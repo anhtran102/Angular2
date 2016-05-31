@@ -11,8 +11,9 @@ import { NgForm }  from '@angular/common';
 
 @Component({
     selector: 'my-tasks',
+    moduleId: module.id,
    // pipes: [DateFormatPipe],
-    templateUrl: './view/tasks.component.html',
+    templateUrl: 'tasks.component.html',
     directives: [TaskDetailComponent]
 })
 export class TasksComponent implements OnInit, AfterViewInit {
@@ -25,15 +26,9 @@ export class TasksComponent implements OnInit, AfterViewInit {
 
     }
     getHeroes() {
-  /*  this.taskService
-            .getTaskes()
-            .then(t => this.tasks = t)
-            .catch(error => this.error = error); // TODO: Display error message
-*/
      this.taskService.getTaskes().subscribe(
             data => {
                 data.forEach(function (t) {
-                   console.log(moment(t.CompletedDate).toDate());
                     t.CompletedDate = moment(t.CompletedDate).toDate();
                     t.CreatedDate = moment(t.CreatedDate).toDate();
                     t.DueDate = moment(t.DueDate).toDate();
@@ -46,17 +41,19 @@ export class TasksComponent implements OnInit, AfterViewInit {
     }
 
     addNewTask(){
-      this.taskService.save(this.newTask);
-    }
-
-    addTa () {
-        if (!this.newTask) {
-            return;
-        }
-        this.taskService.save(this.newTask)
-            .then(
-                t => this.tasks.push(t),
-                error => this.error = <any>error);
+      //this.taskService.save(this.newTask);
+        this.taskService.post2(this.newTask)
+            .subscribe(
+                data => {
+                    data.CompletedDate = moment(data.CompletedDate).toDate();
+                    data.CreatedDate = moment(data.CreatedDate).toDate();
+                    data.DueDate = moment(data.DueDate).toDate();
+                    data.StartDate = moment(data.StartDate).toDate();
+                    this.tasks.push(data);
+                    this.newTask = new Task(0,'','','','','',0);
+                },
+                error=> console.log(error)
+            );
     }
 
     addHero() {
@@ -69,15 +66,25 @@ export class TasksComponent implements OnInit, AfterViewInit {
         if (savedHero) { this.getHeroes(); }
     }
 
-    delete(hero: Task, event: any) {
+    deleteTask(id: number) {
         event.stopPropagation();
-        this.taskService
-            .delete(hero)
-            .then(res => {
-                this.tasks = this.tasks.filter(h => h !== hero);
-                if (this.selectedTask === hero) { this.selectedTask = null; }
-            })
-            .catch(error => this.error = error); // TODO: Display error message
+        var r = confirm("Are you really want to delete?");
+        if (r == true) {
+            this.taskService
+                .delete(id)
+                .subscribe(
+                    data => {
+                        data.forEach(function (t) {
+                            t.CompletedDate = moment(t.CompletedDate).toDate();
+                            t.CreatedDate = moment(t.CreatedDate).toDate();
+                            t.DueDate = moment(t.DueDate).toDate();
+                            t.StartDate = moment(t.StartDate).toDate();
+                        });
+                        this.tasks = data
+                    },
+                    error => console.log(error)
+                );
+        }
     }
 
     ngOnInit() {
@@ -98,8 +105,10 @@ export class TasksComponent implements OnInit, AfterViewInit {
         this.addingHero = false;
     }
 
-    gotoDetail(task: Task){
-        let link = ['TaskDetail', { id: task.id }];
+    gotoDetail(id: number){
+        let link = ['TaskDetail', { id: id }];
         this.router.navigate(link);
     }
+
+    viewDetail
 }

@@ -13,10 +13,11 @@ var http_1 = require('@angular/http');
 var Observable_1 = require('rxjs/Observable');
 require('rxjs/Rx');
 require('rxjs/add/operator/toPromise');
+var global_value_1 = require('./global-value');
 var TaskService = (function () {
     function TaskService(http) {
         this.http = http;
-        this.baseURL = 'http://localhost/TaskManagement/api/'; // URL to web api
+        this.baseURL = global_value_1.global.url; //'http://localhost/WebAPI/api/';  // URL to web api
     }
     TaskService.prototype.getTaskes = function () {
         var url = this.baseURL + "task";
@@ -29,23 +30,39 @@ var TaskService = (function () {
             .catch(this.handleError2);
     };
     TaskService.prototype.getTask = function (id) {
-        /*return this.getTaskes()
-            .then(taskes => taskes.filter(task => task.id === id)[0]);*/
+        var url = this.baseURL + "task/" + id;
+        return this.http.get(url)
+            .map(function (res) { return res.json(); })
+            .catch(this.handleError2);
+    };
+    TaskService.prototype.getUserOfTask = function (id) {
+        var url = this.baseURL + "task/" + id + "/user";
+        return this.http.get(url)
+            .map(function (res) { return res.json(); })
+            .catch(this.handleError2);
     };
     TaskService.prototype.save = function (task) {
         if (task.Id != 0) {
             return this.put(task);
         }
-        return this.post(task);
+        // return this.post2(task).;
     };
-    TaskService.prototype.delete = function (task) {
+    TaskService.prototype.delete = function (id) {
         var headers = new http_1.Headers();
         headers.append('Content-Type', 'application/json');
-        var url = this.baseURL + "/" + task.Id;
+        //let url = `${this.baseURL}${id}`;
+        /* var url = this.baseURL + "task/"+id;
+         return this.http
+             .delete(url, headers)
+             .toPromise()
+             .then(
+                 this.extractData)
+             .catch(this.handleError);*/
+        var url = this.baseURL + "task/" + id;
         return this.http
             .delete(url, headers)
-            .toPromise()
-            .catch(this.handleError);
+            .map(function (res) { return res.json(); })
+            .catch(this.handleError2);
     };
     TaskService.prototype.post = function (task) {
         var url = this.baseURL + "task";
@@ -57,17 +74,14 @@ var TaskService = (function () {
             .then(this.extractData)
             .catch(this.handleError);
     };
-    /*   // Add new Task
-       private post(task: Task): Promise<Task> {
-           let headers = new Headers({
-               'Content-Type': 'application/json'});
-   
-           return this.http
-               .post(this.baseURL, JSON.stringify(task), {headers: headers})
-               .toPromise()
-               .then(res => res.json().data)
-               .catch(this.handleError);
-       }*/
+    TaskService.prototype.post2 = function (task) {
+        var body = JSON.stringify(task);
+        var url = this.baseURL + "task";
+        var headers = new http_1.Headers();
+        headers.append('Content-Type', 'application/json');
+        return this.http.post(url, body, { headers: headers })
+            .map(function (res) { return res.json(); });
+    };
     // Update existing Task
     TaskService.prototype.put = function (task) {
         var headers = new http_1.Headers();
@@ -94,10 +108,9 @@ var TaskService = (function () {
     };
     TaskService = __decorate([
         core_1.Injectable(), 
-        __metadata('design:paramtypes', [(typeof (_a = typeof http_1.Http !== 'undefined' && http_1.Http) === 'function' && _a) || Object])
+        __metadata('design:paramtypes', [http_1.Http])
     ], TaskService);
     return TaskService;
-    var _a;
 }());
 exports.TaskService = TaskService;
 //# sourceMappingURL=task.service.js.map

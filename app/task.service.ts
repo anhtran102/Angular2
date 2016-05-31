@@ -1,18 +1,20 @@
 import {Injectable} from '@angular/core';
-import {Http, Headers, RequestOptions} from '@angular/http';
+import {Http, Headers, RequestOptions, Response} from '@angular/http';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/Rx';
 import 'rxjs/add/operator/toPromise';
 declare var moment: any;
 import {} from 'moment';
 
+import {global } from './global-value';
+
 import { Task } from './task';
+import {map} from "rxjs/operator/map";
 
 @Injectable()
 export class TaskService {
 
-    private baseURL = 'http://localhost/TaskManagement/api/';  // URL to web api
-
+    private baseURL = global.url;//'http://localhost/WebAPI/api/';  // URL to web api
     constructor(private http: Http) { }
 
     getTaskes() {
@@ -29,27 +31,44 @@ export class TaskService {
     }
 
     getTask(id: number) {
-        /*return this.getTaskes()
-            .then(taskes => taskes.filter(task => task.id === id)[0]);*/
+        var url = this.baseURL + "task/"+id;
+        return  this.http.get(url)
+            .map(res => res.json())
+            .catch(this.handleError2);
+    }
+
+    getUserOfTask(id: number) {
+        var url = this.baseURL + "task/"+id+"/user";
+        return  this.http.get(url)
+            .map(res => res.json())
+            .catch(this.handleError2);
     }
 
     save(task: Task): Promise<Task>  {
         if (task.Id!=0) {
             return this.put(task);
         }
-        return this.post(task);
+       // return this.post2(task).;
     }
 
-    delete(task: Task) {
+    delete(id: number) {
         let headers = new Headers();
         headers.append('Content-Type', 'application/json');
 
-        let url = `${this.baseURL}/${task.Id}`;
-
+        //let url = `${this.baseURL}${id}`;
+       /* var url = this.baseURL + "task/"+id;
         return this.http
             .delete(url, headers)
             .toPromise()
-            .catch(this.handleError);
+            .then(
+                this.extractData)
+            .catch(this.handleError);*/
+
+        var url = this.baseURL + "task/"+id;
+        return this.http
+            .delete(url, headers)
+            .map(res => res.json())
+            .catch(this.handleError2);
     }
 
     private post(task: Task): Promise<Task> {
@@ -63,17 +82,16 @@ export class TaskService {
             .catch(this.handleError);
     }
 
- /*   // Add new Task
-    private post(task: Task): Promise<Task> {
-        let headers = new Headers({
-            'Content-Type': 'application/json'});
+    post2(task){
 
-        return this.http
-            .post(this.baseURL, JSON.stringify(task), {headers: headers})
-            .toPromise()
-            .then(res => res.json().data)
-            .catch(this.handleError);
-    }*/
+        var body = JSON.stringify(task);
+        var url = this.baseURL + "task";
+        var headers = new Headers();
+        headers.append('Content-Type', 'application/json');
+        return this.http.post(url,
+            body, { headers: headers })
+            .map(res=>res.json());
+    }
 
     // Update existing Task
     private put(task: Task) {

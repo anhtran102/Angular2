@@ -90,7 +90,7 @@ interface String {
     startsWith(searchString: string, position?: number): boolean;
 
     /**
-      * Returns an <a> HTML anchor element and sets the subject attribute to the text value
+      * Returns an <a> HTML anchor element and sets the name attribute to the text value
       * @param name
       */
     anchor(name: string): string;

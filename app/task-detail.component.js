@@ -10,52 +10,63 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var router_deprecated_1 = require('@angular/router-deprecated');
-var task_1 = require('./task');
 var task_service_1 = require('./task.service');
 var TaskDetailComponent = (function () {
     function TaskDetailComponent(taskService, routeParams) {
         this.taskService = taskService;
         this.routeParams = routeParams;
+        this.success = false;
+        this.ngOnInit();
     }
     TaskDetailComponent.prototype.ngOnInit = function () {
         var _this = this;
         if (this.routeParams.get('id') !== null) {
             var id = +this.routeParams.get('id');
             this.navigated = true;
-            this.taskService.getTask(id)
-                .then(function (task) { return _this.task = task; });
+            //get task detail
+            this.taskService.getTask(id).subscribe(function (data) {
+                _this.task = data;
+            }, function (error) { return console.log(error); });
+            //get user of task
+            this.taskService.getUserOfTask(id).subscribe(function (data) {
+                _this.users = data;
+            }, function (error) { return console.log(error); });
         }
-        else {
-            this.navigated = false;
-            this.task = new task_1.Task();
-        }
+        /*  this.taskService.getTask(id)
+              .then(task => this.task = task);
+      } else {
+          this.navigated = false;
+          //this.task = new Task();
+      }*/
     };
-    TaskDetailComponent.prototype.save = function () {
+    TaskDetailComponent.prototype.updateTask = function () {
         var _this = this;
+        this.success = false;
         this.taskService
             .save(this.task)
             .then(function (t) {
-            _this.task = t; // saved hero, w/ id if new
-            _this.goBack(t);
+            //this.task = t; // saved hero, w/ id if new
+            //this.goBack();
+            _this.success = true;
         })
             .catch(function (error) { return _this.error = error; }); // TODO: Display error message
     };
-    TaskDetailComponent.prototype.goBack = function (savedTask) {
-        if (savedTask === void 0) { savedTask = null; }
-        this.close.emit(savedTask);
-        if (this.navigated) {
-            window.history.back();
-        }
+    TaskDetailComponent.prototype.goBack = function () {
+        // this.close.emit(savedTask);
+        window.history.back();
     };
+    __decorate([
+        core_1.Input(), 
+        __metadata('design:type', Number)
+    ], TaskDetailComponent.prototype, "id", void 0);
     TaskDetailComponent = __decorate([
         core_1.Component({
             selector: 'task-detail',
             templateUrl: 'app/task-detail.component.html'
         }), 
-        __metadata('design:paramtypes', [task_service_1.TaskService, (typeof (_a = typeof router_deprecated_1.RouteParams !== 'undefined' && router_deprecated_1.RouteParams) === 'function' && _a) || Object])
+        __metadata('design:paramtypes', [task_service_1.TaskService, router_deprecated_1.RouteParams])
     ], TaskDetailComponent);
     return TaskDetailComponent;
-    var _a;
 }());
 exports.TaskDetailComponent = TaskDetailComponent;
 //# sourceMappingURL=task-detail.component.js.map

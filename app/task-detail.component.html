@@ -1,9 +1,59 @@
-<div *ngIf="task">
-    <h2>{{task.name}} details!</h2>
-    <div><label>id: </label>{{task.id}}</div>
-    <div>
-        <label>name: </label>
-        <input [(ngModel)]="task.name" placeholder="name"/>
-    </div>
+<div  *ngIf="success" class="alert alert-dismissible alert-success">
+    Update success!
 </div>
-<button (click)="goBack()">Back</button>
+    <div class="container-fluid new-task" *ngIf="task">
+        <form class="form-horizontal" (ngSubmit)="updateTask()" #heroForm="ngForm">
+            <fieldset>
+                <legend>Update Task information</legend>
+                <div class="form-group">
+                    <label  class="col-lg-2 control-label">Subject</label>
+                    <div class="col-lg-6">
+                        <input type="text" class="form-control"  [(ngModel)]="task.Subject"  placeholder="Subject" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label  class="col-lg-2 control-label">Start Date</label>
+                    <div class="col-lg-2">
+                        <input type="datetime-local" class="form-control" placeholder="Start Date"  [(ngModel)]="task.StartDate" required>
+                    </div>
+                    <label class="col-lg-2 control-label">Due Date</label>
+                    <div class="col-lg-2">
+                        <input type="datetime-local" class="form-control" placeholder="Due Date" [(ngModel)]="task.DueDate" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label  class="col-lg-2 control-label">Completed Date</label>
+                    <div class="col-lg-2">
+                        <input type="datetime-local" class="form-control" placeholder="Completed Date"  [(ngModel)]="task.CompletedDate" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-lg-6 col-lg-offset-2">
+                        <button class="btn btn-default" >Update</button>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+        <hr/>
+        <h3>Users assigned to this task: </h3>
+        <table class="table table-striped table-hover table-bordered editable">
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>UserName</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let user of users; let i = index">
+                <td>{{i+1}}</td>
+                <td>{{user.FirstName}}</td>
+                <td>{{user.LastName}}</td>
+                <td>{{user.UserName}}</td>
+            </tr>
+            </tbody>
+        </table>
+
+    </div>
+    <button class="btn btn-default" (click)="goBack()">Back to list</button>
