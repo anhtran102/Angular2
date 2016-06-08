@@ -1,0 +1,17 @@
+.Footer {
+    background: #3a3a3a;
+    color: #fff;
+    padding-bottom: 30px;
+    clear: both;
+}
+
+#sticky {
+    border-radius: 0;
+}
+
+#sticky.stick {
+    margin-top: 0 !important;
+    position: fixed;
+    top: 0;
+    z-index: 10000;
+}

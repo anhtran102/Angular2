@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/footer.css">
     <link rel="stylesheet" href="css/jquery.dataTables.min.css">
+     <link rel="stylesheet" href="css/jquery.dataTables.min.css">
     <link rel="stylesheet" href="css/bootstrap.css">
-    <link rel="stylesheet" href="css/jquery.dataTables.min.css">
  <!--   <link rel="stylesheet" href="css/custom.min.css">-->
    <!-- <link href="node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet">-->
   <!--  <link href="node_modules/bootstrap/dist/css/bootstrap-theme.css" rel="stylesheet">-->
-
     <script src="node_modules/jquery/dist/jquery.js"></script>
     <script src="script/jquery.dataTables.min.js"></script>
     <script src="node_modules/moment/moment.js"></script>
@@ -25,9 +25,8 @@
     <script src="node_modules/zone.js/dist/zone.js"></script>
     <script src="node_modules/reflect-metadata/Reflect.js"></script>
     <script src="node_modules/systemjs/dist/system.src.js"></script>
-
     <script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
-
+    <script src="script/app-script.js"></script>
     <!-- 2. Configure SystemJS -->
     <script src="systemjs.config.js"></script>
     <script>
@@ -38,10 +37,13 @@
 
 <!-- 3. Display the application -->
 <body>
-<div class="navbar navbar-default navbar-fixed-top">
+<div id="#sticky-anchor" style="height:80px; background-color: #cccccc">
+    The content go here
+</div>
+<div id="#sticky" class="navbar navbar-default">
     <div class="container">
         <div class="navbar-header">
-            <a href="/" class="navbar-brand">Demo App</a>
+            <a href="#" class="navbar-brand">Demo App</a>
             <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
@@ -68,17 +70,92 @@
     </div>
     <my-app>Loading...</my-app>
     <hr/>
-    <footer>
-        <div class="row">
-            <div class="col-lg-12">
-                <p>Based on <a href="http://getbootstrap.com/" rel="nofollow">Bootstrap</a>.
-                    <a class="footer-icon" ng-transclude="">
-                        <span class="ng-scope">Angular </span>
-                    </a>
-                </p>
-            </div>
-        </div>
-    </footer>
-</div>
+           <!-- <footer class="Footer" role="contentinfo">
+                <div class="Footer_container">
+                    <ul class="FooterList">
+                        <li class="FooterList_item">
+                            <h3>About</h3>
+                        </li>
+                        <li class="FooterList_item">
+                            <a href="/about-us/">Our Story</a>
+                        </li>
+                        <li class="FooterList_item">
+                            <a href="https://sitepoint.zendesk.com/hc/en-us" target="_blank">FAQ</a>
+                        </li>
+                        <li class="FooterList_item">
+                            <a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;tf=1&amp;to=feedback@sitepoint.com" target="_blank">Contact Us</a>
+                        </li>
+                    </ul>
+
+                    <ul class="FooterList">
+                        <li class="FooterList_item">
+                            <h3>Visit</h3>
+                        </li>
+                        <li class="FooterList_item">
+                            <a href="/">SitePoint Home</a>
+                        </li>
+                        <li class="FooterList_item">
+                            <a href="/newsletter/">Newsletters</a>
+                        </li>
+                        <li class="FooterList_item">
+                            <a href="https://shop.sitepoint.com">Shop</a>
+                        </li>
+                        <li class="FooterList_item">
+                            <a href="https://www.sitepoint.com/versioning/">Versioning</a>
+                        </li>
+                    </ul>
+
+                    <ul class="FooterList">
+                        <li class="FooterList_item">
+                            <h3>Connect</h3>
+                        </li>
+                        <li class="FooterList_item FooterList_item&#45;&#45;icons">
+                            <a href="https://www.sitepoint.com/feed/">
+                                <i class="fa fa-rss-square"></i>
+                            </a>
+                            <a href="/newsletter/">
+                                <i class="fa fa-envelope-square"></i>
+                            </a>
+                            <a href="https://www.facebook.com/sitepoint" target="_blank">
+                                <i class="fa fa-facebook-square"></i>
+                            </a>
+                            <a href="http://twitter.com/sitepointdotcom" target="_blank">
+                                <i class="fa fa-twitter-square"></i>
+                            </a>
+                            <a href="https://plus.google.com/+sitepoint" target="_blank">
+                                <i class="fa fa-google-plus-square"></i>
+                            </a>
+                        </li>
+
+                        <p class="Footer_copyright">
+                            © 2000 – 2016 SitePoint Pty. Ltd.
+                        </p>
+                    </ul>
+                </div>
+            </footer>-->
+    <p>Nunc eu sapien turpis. Proin non arcu orci, eget volutpat tellus. Maecenas tempor mattis risus, quis pellentesque eros imperdiet nec. Vestibulum porttitor, justo at ornare bibendum, magna lectus cursus felis, tristique consectetur arcu justo at augue.
+        Mauris ultrices mollis sem eget elementum. Sed ipsum orci, tempus vel porttitor vel, tristique eu erat. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Duis aliquam pulvinar nisl, vitae congue velit ultricies
+        eget.
+    </p>
+    <p>Maecenas mollis arcu orci. Nam nec velit dolor, ut convallis augue. Morbi sed massa nunc. Vestibulum malesuada eros sed purus volutpat nec bibendum neque sodales. Nullam tincidunt quam sit amet lacus egestas vitae ultrices mauris porta. Duis vel neque
+        ipsum. Vestibulum eu blandit ante. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec turpis leo, hendrerit quis elementum tincidunt, auctor ac augue. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis
+        egestas.
+    </p>
+    <p>Sed in eleifend magna. Morbi faucibus eleifend nunc eu sagittis. Curabitur accumsan nulla in neque tempor eu lacinia elit consectetur. Nullam scelerisque ligula vitae nisi interdum pellentesque. Vivamus lobortis tempor pulvinar. Nunc sit amet nulla urna.
+        Phasellus malesuada euismod lectus nec bibendum. Ut adipiscing dapibus ipsum nec iaculis. Donec quis dignissim tortor. Suspendisse molestie rhoncus enim hendrerit ultricies. Proin semper purus posuere urna porttitor suscipit.</p>
+    <p>Curabitur odio dui, imperdiet sed sodales nec, aliquet id nisl. Mauris nec sapien nibh. Maecenas vel sem at felis posuere rutrum non non mauris. Maecenas at lectus ut ipsum iaculis lobortis. Vivamus ut porta nisi. Phasellus tempor accumsan urna eu faucibus.
+        Duis sed ligula neque, pulvinar euismod velit. Donec tristique eros at dolor ornare sagittis. Vestibulum sodales imperdiet ante et tincidunt. Suspendisse malesuada tempor nisi ac accumsan. Pellentesque accumsan pulvinar odio, id adipiscing diam mollis
+        eu. Nulla id mi rutrum elit rutrum ultrices. Maecenas viverra, est ut pellentesque ultricies, ligula nisi auctor tellus, vitae bibendum mi nunc non libero. Mauris in facilisis enim. Proin facilisis, risus et tempus accumsan, orci enim egestas arcu,
+        sit amet sodales risus leo quis nisi.</p>
+    <p>Nunc eu sapien turpis. Proin non arcu orci, eget volutpat tellus. Maecenas tempor mattis risus, quis pellentesque eros imperdiet nec. Vestibulum porttitor, justo at ornare bibendum, magna lectus cursus felis, tristique consectetur arcu justo at augue.
+        Mauris ultrices mollis sem eget elementum. Sed ipsum orci, tempus vel porttitor vel, tristique eu erat. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Duis aliquam pulvinar nisl, vitae congue velit ultricies
+        eget.
+    </p>
+    <p>Maecenas mollis arcu orci. Nam nec velit dolor, ut convallis augue. Morbi sed massa nunc. Vestibulum malesuada eros sed purus volutpat nec bibendum neque sodales. Nullam tincidunt quam sit amet lacus egestas vitae ultrices mauris porta. Duis vel neque
+        ipsum. Vestibulum eu blandit ante. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec turpis leo, hendrerit quis elementum tincidunt, auctor ac augue. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis
+        egestas.
+    </p>
+    </div>
+
 </body>
 </html>
