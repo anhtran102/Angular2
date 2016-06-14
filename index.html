@@ -1,24 +1,17 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>Angular 2 with Web API</title>
+    <title>Angular 2 App</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/footer.css">
-    <link rel="stylesheet" href="css/jquery.dataTables.min.css">
-     <link rel="stylesheet" href="css/jquery.dataTables.min.css">
-    <link rel="stylesheet" href="css/bootstrap.css">
- <!--   <link rel="stylesheet" href="css/custom.min.css">-->
-   <!-- <link href="node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet">-->
-  <!--  <link href="node_modules/bootstrap/dist/css/bootstrap-theme.css" rel="stylesheet">-->
-    <script src="node_modules/jquery/dist/jquery.js"></script>
-    <script src="script/jquery.dataTables.min.js"></script>
+    <link href="css/styles.css" rel="stylesheet">
+    <link href="css/header-footer.css" rel="stylesheet">
+    <!--<link href="css/bootstrap.css" rel="stylesheet">-->
+    <link href="node_modules/bootstrap/dist/css/bootstrap-theme.css" rel="stylesheet">
+    <link href="node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
     <script src="node_modules/moment/moment.js"></script>
-
-   <!-- <script src="css/carbon.js"></script>
-    <script src="css/custom.js"></script>
-    <script src="css/C6AILKT.json"></script>
-    <script src="css/ga.js"></script>-->
+    <script src="node_modules/jquery/dist/jquery.js"></script>
+    <script src="script/app-script.js"></script>
     <!-- 1. Load libraries -->
     <!-- Polyfill(s) for older browsers -->
     <script src="node_modules/es6-shim/es6-shim.min.js"></script>
@@ -34,128 +27,164 @@
     </script>
     <base href="/">
 </head>
-
-<!-- 3. Display the application -->
 <body>
-<div id="#sticky-anchor" style="height:80px; background-color: #cccccc">
-    The content go here
+<div class="banner">
 </div>
-<div id="#sticky" class="navbar navbar-default">
+<div id="sticky-anchor"></div>
+<div  id="sticky">
+    <div  class="navbar navbar-default">
     <div class="container">
-        <div class="navbar-header">
-            <a href="#" class="navbar-brand">Demo App</a>
-            <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-        </div>
-        <div class="navbar-collapse collapse" id="navbar-main">
-            <ul class="nav navbar-nav">
-                <li>
-                    <a href="#/tasks" [routerLink]="['Tasks']">My Tasks</a>
-                </li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="http://builtwithbootstrap.com/" target="_blank">Sign In</a></li>
-                <li><a href="https://wrapbootstrap.com/?ref=bsw" target="_blank">Sign Up</a></li>
-            </ul>
-        </div>
+            <div class="navbar-header">
+                <a href="#" class="navbar-brand">Demo App</a>
+                <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div class="navbar-collapse collapse" id="navbar-main">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="#/tasks" [routerLink]="['Tasks']">My Tasks</a>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="http://builtwithbootstrap.com/" target="_blank">Đăng Nhập</a></li>
+                    <li><a href="https://wrapbootstrap.com/?ref=bsw" target="_blank">Đăng Ký</a></li>
+                </ul>
+            </div>
+         </div>
+     </div>
     </div>
-</div>
-<div class="container">
-    <div class="page-header" id="banner">
-        <div class="row">
-        </div>
-    </div>
+    <div class="container">
     <my-app>Loading...</my-app>
     <hr/>
-           <!-- <footer class="Footer" role="contentinfo">
-                <div class="Footer_container">
-                    <ul class="FooterList">
-                        <li class="FooterList_item">
-                            <h3>About</h3>
-                        </li>
-                        <li class="FooterList_item">
-                            <a href="/about-us/">Our Story</a>
-                        </li>
-                        <li class="FooterList_item">
-                            <a href="https://sitepoint.zendesk.com/hc/en-us" target="_blank">FAQ</a>
-                        </li>
-                        <li class="FooterList_item">
-                            <a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;tf=1&amp;to=feedback@sitepoint.com" target="_blank">Contact Us</a>
-                        </li>
-                    </ul>
+        <p>Maecenas mollis arcu orci. Nam nec velit dolor, ut convallis augue. Morbi sed massa nunc. Vestibulum malesuada eros sed purus volutpat nec bibendum neque sodales. Nullam tincidunt quam sit amet lacus egestas vitae ultrices mauris porta. Duis vel neque
+            ipsum. Vestibulum eu blandit ante. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec turpis leo, hendrerit quis elementum tincidunt, auctor ac augue. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis
+            egestas.
+        </p>
+        <p>Sed in eleifend magna. Morbi faucibus eleifend nunc eu sagittis. Curabitur accumsan nulla in neque tempor eu lacinia elit consectetur. Nullam scelerisque ligula vitae nisi interdum pellentesque. Vivamus lobortis tempor pulvinar. Nunc sit amet nulla urna.
+            Phasellus malesuada euismod lectus nec bibendum. Ut adipiscing dapibus ipsum nec iaculis. Donec quis dignissim tortor. Suspendisse molestie rhoncus enim hendrerit ultricies. Proin semper purus posuere urna porttitor suscipit.</p>
+        <p>Curabitur odio dui, imperdiet sed sodales nec, aliquet id nisl. Mauris nec sapien nibh. Maecenas vel sem at felis posuere rutrum non non mauris. Maecenas at lectus ut ipsum iaculis lobortis. Vivamus ut porta nisi. Phasellus tempor accumsan urna eu faucibus.
+            Duis sed ligula neque, pulvinar euismod velit. Donec tristique eros at dolor ornare sagittis. Vestibulum sodales imperdiet ante et tincidunt. Suspendisse malesuada tempor nisi ac accumsan. Pellentesque accumsan pulvinar odio, id adipiscing diam mollis
+            eu. Nulla id mi rutrum elit rutrum ultrices. Maecenas viverra, est ut pellentesque ultricies, ligula nisi auctor tellus, vitae bibendum mi nunc non libero. Mauris in facilisis enim. Proin facilisis, risus et tempus accumsan, orci enim egestas arcu,
+            sit amet sodales risus leo quis nisi.
+        </p>
+</div>
+<a id="back-to-top" href="#" class="btn btn-primary btn-lg back-to-top"
+   role="button" title="Back to Top">
+    <span class="glyphicon glyphicon-chevron-up"></span>
+</a>
+<div class="top-footer">
+    <div class="container">
+        <div class="row">
 
-                    <ul class="FooterList">
-                        <li class="FooterList_item">
-                            <h3>Visit</h3>
-                        </li>
-                        <li class="FooterList_item">
-                            <a href="/">SitePoint Home</a>
-                        </li>
-                        <li class="FooterList_item">
-                            <a href="/newsletter/">Newsletters</a>
-                        </li>
-                        <li class="FooterList_item">
-                            <a href="https://shop.sitepoint.com">Shop</a>
-                        </li>
-                        <li class="FooterList_item">
-                            <a href="https://www.sitepoint.com/versioning/">Versioning</a>
-                        </li>
-                    </ul>
 
-                    <ul class="FooterList">
-                        <li class="FooterList_item">
-                            <h3>Connect</h3>
-                        </li>
-                        <li class="FooterList_item FooterList_item&#45;&#45;icons">
-                            <a href="https://www.sitepoint.com/feed/">
-                                <i class="fa fa-rss-square"></i>
-                            </a>
-                            <a href="/newsletter/">
-                                <i class="fa fa-envelope-square"></i>
-                            </a>
-                            <a href="https://www.facebook.com/sitepoint" target="_blank">
-                                <i class="fa fa-facebook-square"></i>
-                            </a>
-                            <a href="http://twitter.com/sitepointdotcom" target="_blank">
-                                <i class="fa fa-twitter-square"></i>
-                            </a>
-                            <a href="https://plus.google.com/+sitepoint" target="_blank">
-                                <i class="fa fa-google-plus-square"></i>
-                            </a>
-                        </li>
+            <div class="col-xs-3 border-right height first-col">
+                <div class="block-footer clearfix">
+                    <h6 class="text-uppercase font-family-bold">Adayroi</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="/help/gioi-thieu" title="Giới thiệu về Adayroi" rel="nofollow">Giới thiệu về Adayroi</a></li>
+                        <li><a href="/help/quy-che-hoat-dong" title="Quy chế hoạt động Sàn TMĐT" rel="nofollow">Quy chế hoạt động Sàn TMĐT</a></li>
+                        <li><a href="/help/dieu-khoan-dieu-kien" title="Điều khoản và điều kiện giao dịch" rel="nofollow">Điều khoản và điều kiện giao dịch</a></li>
 
-                        <p class="Footer_copyright">
-                            © 2000 – 2016 SitePoint Pty. Ltd.
-                        </p>
+                        <li><a target="_blank" href="https://cdn02.static-adayroi.com/0/2016/04/02/1459562286124_4339455.pdf" rel="nofollow" title="Thông báo từ Adayroi">Thông báo từ Adayroi</a></li>
+                        <li><a href="/help/lien-he" title="Liên hệ với Adayroi" rel="nofollow">Liên hệ với Adayroi</a></li>
                     </ul>
                 </div>
-            </footer>-->
-    <p>Nunc eu sapien turpis. Proin non arcu orci, eget volutpat tellus. Maecenas tempor mattis risus, quis pellentesque eros imperdiet nec. Vestibulum porttitor, justo at ornare bibendum, magna lectus cursus felis, tristique consectetur arcu justo at augue.
-        Mauris ultrices mollis sem eget elementum. Sed ipsum orci, tempus vel porttitor vel, tristique eu erat. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Duis aliquam pulvinar nisl, vitae congue velit ultricies
-        eget.
-    </p>
-    <p>Maecenas mollis arcu orci. Nam nec velit dolor, ut convallis augue. Morbi sed massa nunc. Vestibulum malesuada eros sed purus volutpat nec bibendum neque sodales. Nullam tincidunt quam sit amet lacus egestas vitae ultrices mauris porta. Duis vel neque
-        ipsum. Vestibulum eu blandit ante. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec turpis leo, hendrerit quis elementum tincidunt, auctor ac augue. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis
-        egestas.
-    </p>
-    <p>Sed in eleifend magna. Morbi faucibus eleifend nunc eu sagittis. Curabitur accumsan nulla in neque tempor eu lacinia elit consectetur. Nullam scelerisque ligula vitae nisi interdum pellentesque. Vivamus lobortis tempor pulvinar. Nunc sit amet nulla urna.
-        Phasellus malesuada euismod lectus nec bibendum. Ut adipiscing dapibus ipsum nec iaculis. Donec quis dignissim tortor. Suspendisse molestie rhoncus enim hendrerit ultricies. Proin semper purus posuere urna porttitor suscipit.</p>
-    <p>Curabitur odio dui, imperdiet sed sodales nec, aliquet id nisl. Mauris nec sapien nibh. Maecenas vel sem at felis posuere rutrum non non mauris. Maecenas at lectus ut ipsum iaculis lobortis. Vivamus ut porta nisi. Phasellus tempor accumsan urna eu faucibus.
-        Duis sed ligula neque, pulvinar euismod velit. Donec tristique eros at dolor ornare sagittis. Vestibulum sodales imperdiet ante et tincidunt. Suspendisse malesuada tempor nisi ac accumsan. Pellentesque accumsan pulvinar odio, id adipiscing diam mollis
-        eu. Nulla id mi rutrum elit rutrum ultrices. Maecenas viverra, est ut pellentesque ultricies, ligula nisi auctor tellus, vitae bibendum mi nunc non libero. Mauris in facilisis enim. Proin facilisis, risus et tempus accumsan, orci enim egestas arcu,
-        sit amet sodales risus leo quis nisi.</p>
-    <p>Nunc eu sapien turpis. Proin non arcu orci, eget volutpat tellus. Maecenas tempor mattis risus, quis pellentesque eros imperdiet nec. Vestibulum porttitor, justo at ornare bibendum, magna lectus cursus felis, tristique consectetur arcu justo at augue.
-        Mauris ultrices mollis sem eget elementum. Sed ipsum orci, tempus vel porttitor vel, tristique eu erat. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Duis aliquam pulvinar nisl, vitae congue velit ultricies
-        eget.
-    </p>
-    <p>Maecenas mollis arcu orci. Nam nec velit dolor, ut convallis augue. Morbi sed massa nunc. Vestibulum malesuada eros sed purus volutpat nec bibendum neque sodales. Nullam tincidunt quam sit amet lacus egestas vitae ultrices mauris porta. Duis vel neque
-        ipsum. Vestibulum eu blandit ante. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec turpis leo, hendrerit quis elementum tincidunt, auctor ac augue. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis
-        egestas.
-    </p>
+
+            </div>
+            <div class="col-xs-3 border-right height">
+
+                <div class="block-footer clearfix">
+                    <h6 class="text-uppercase font-family-bold">chăm sóc khách hàng</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="/help/trung-tam-ho-tro-khach-hang" tit="" title="Trung tâm hỗ trợ khách hàng" rel="nofollow">Trung tâm hỗ trợ khách hàng</a></li>
+                        <li><a data-toggle="modalOrderTracking" title="Kiểm tra đơn hàng" rel="nofollow">Kiểm tra đơn hàng</a></li>
+                        <li><a href="/help/chinh-sach-bao-mat-thanh-toan" title="Chính sách bảo mật thanh toán" rel="nofollow">Chính sách bảo mật thanh toán</a></li>
+                        <li><a href="/help/chinh-sach-dinh-danh-khach-hang" title="Chính sách định danh khách hàng" rel="nofollow">Chính sách định danh khách hàng</a></li>
+                        <li><a href="/help/chinh-sach-thanh-toan" title="Chính sách thanh toán" rel="nofollow">Chính sách thanh toán</a></li>
+                        <li><a href="/help/chinh-sach-giao-hang" title="Chính sách giao hàng" rel="nofollow">Chính sách giao hàng</a></li>
+                        <li><a href="/help/chinh-sach-doi-tra" title="Chính sách đổi trả" rel="nofollow">Chính sách đổi trả</a></li>
+                        <li><a href="/help/chinh-sach-bao-hanh" title="Chính sách bảo hành" rel="nofollow">Chính sách bảo hành</a></li>
+                        <li><a href="https://www.adayroi.com/sell-with-us-sl70" title="Đăng ký mở gian hàng">Đăng ký mở gian hàng</a></li>
+                        <li><a href="/help/nhung-cau-hoi-thuong-gap" title="Câu hỏi thường gặp" rel="nofollow">Câu hỏi thường gặp</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-xs-3 border-right height">
+                <div class="block-footer clearfix">
+                    <h6 class="text-uppercase font-family-bold">tài khoản</h6>
+                    <ul class="list-unstyled">
+                        <li><a data-toggle="userLogin" title="Đăng nhập" rel="nofollow">Đăng nhập</a></li>
+                        <li><a data-toggle="userRegister" title="Đăng ký" rel="nofollow">Đăng ký</a></li>                                <li><a href="/help/chinh-sach-bao-mat-thong-tin" title="Chính sách bảo mật và chia sẻ thông tin" rel="nofollow">Chính sách bảo mật và chia sẻ thông tin</a></li>
+                    </ul>
+                </div>
+                <div class="block-footer clearfix">
+                    <h6 class="text-uppercase font-family-bold">Liên kết Website</h6>
+                    <div style="padding-right: 0px; padding-left: 0px;" class="container-fluid">
+                        <div style="margin-left: -15px; margin-right: -15px;" class="row">
+                            <div class="col-xs-6">
+                                <ul class="list-unstyled">
+                                    <li><a href="http://VinHomes.vn" rel="nofollow" target="_blank" title="VinHomes.vn">VinHomes.vn</a></li>
+                                    <li><a href="http://Vinmart.vn" rel="nofollow" target="_blank" title="Vinmart.vn">Vinmart.vn</a></li>
+                                    <li><a href="http://Vinmec.com" rel="nofollow" target="_blank" title="Vinmec.com">Vinmec.com</a></li>
+                                    <li><a href="http://VinPearl.com" rel="nofollow" target="_blank" title="VinPearl.com">VinPearl.com</a></li>
+
+                                    <li><a href="http://Vinhomesriverside.com" rel="nofollow" target="_blank"> Vinhomesriverside.com</a></li>
+                                </ul>
+                            </div>
+                            <div class="col-xs-6">
+                                <ul class="list-unstyled">
+                                    <li><a href="http://www.almaz.vn" rel="nofollow" target="_blank">Almaz.vn </a></li>
+                                    <li><a href="http://Vinclub.vn" rel="nofollow" target="_blank">Vinclub.vn</a></li>
+
+
+                                    <li><a href="http://VinPro.net" rel="nofollow" target="_blank">VinPro.net </a></li>
+                                    <li><a href="http://Vinpearlland.com" rel="nofollow" target="_blank" title="Vinpearlland.com">Vinpearlland.com</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xs-3 last-col">
+                <div class="block-footer clearfix no-margin">
+                    <h6 class="text-uppercase font-family-bold">Được chứng nhận</h6>
+                    <p>
+                        <a target="_blank" href="http://online.gov.vn/HomePage/WebsiteDisplay.aspx?DocId=21352" rel="nofollow"><img alt="" title="" src="/images/bo-cong-thuong.da-dang-ky.png"></a>
+                    </p>
+                    <h6 class="text-uppercase font-family-bold">Like để nhận Ưu đãi mới nhất</h6>
+                    <div class="fb-page fb_iframe_widget" data-href="https://www.facebook.com/Adayroicom-939777419366417/" data-small-header="true" data-adapt-container-width="true" data-hide-cover="true" data-show-facepile="true" fb-xfbml-state="rendered" fb-iframe-plugin-query="adapt_container_width=true&amp;app_id=749384515190849&amp;container_width=274&amp;hide_cover=true&amp;href=https%3A%2F%2Fwww.facebook.com%2FAdayroicom-939777419366417%2F&amp;locale=en_US&amp;sdk=joey&amp;show_facepile=true&amp;small_header=true"><span style="vertical-align: bottom; width: 274px; height: 154px;"><iframe name="f1cfe5aaa49c5c" width="1000px" height="1000px" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" title="fb:page Facebook Social Plugin" src="https://www.facebook.com/v2.5/plugins/page.php?adapt_container_width=true&amp;app_id=749384515190849&amp;channel=https%3A%2F%2Fstaticxx.facebook.com%2Fconnect%2Fxd_arbiter.php%3Fversion%3D42%23cb%3Df1bb668c2e5a8c%26domain%3Dwww.adayroi.com%26origin%3Dhttps%253A%252F%252Fwww.adayroi.com%252Ff96d143a0ad17c%26relation%3Dparent.parent&amp;container_width=274&amp;hide_cover=true&amp;href=https%3A%2F%2Fwww.facebook.com%2FAdayroicom-939777419366417%2F&amp;locale=en_US&amp;sdk=joey&amp;show_facepile=true&amp;small_header=true" style="border: none; visibility: visible; width: 274px; height: 154px;" class=""></iframe></span></div>
+                </div>
+            </div>
+        </div>
     </div>
 
+    <div id="footer__segment_newsletter">
+        <div class="container">
+            <div id="footer__segment_newsletter__title">
+                Đăng ký nhận<br>
+                bản tin Adayroi
+            </div>
+            <!-- /#footer__segment_newsletter__title -->
+
+            <div id="footer__segment_newsletter__description">
+                Cập nhật thông tin khuyến mãi nhanh nhất<br>
+                Hưởng quyền lợi giảm giá riêng biệt
+            </div>
+            <!-- /#footer__segment_newsletter__description -->
+
+            <form id="frmNewsLetter" novalidate="novalidate">
+                <input name="newsleterInput" id="newsleterInput" type="text" placeholder="Email của bạn" class="form-control" maxlength="255">
+                <input type="submit" id="footer__segment_newsletter__form__submit" class="form-control adr button" value="Gửi">
+            </form>
+            <!-- /#footer__segment_newsletter__form -->
+        </div>
+        <!-- /.container -->
+    </div>
+    <!-- /#footer__segment_newsletter -->
+</div>
 </body>
 </html>

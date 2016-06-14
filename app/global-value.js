@@ -4,6 +4,6 @@
 "use strict";
 exports.global = {
     //url: "http://localhost/WebAPI/api/"
-    url: "http://localhost:90/API/api/"
+    url: "http://localhost/WebAPI/api/"
 };
 //# sourceMappingURL=global-value.js.map

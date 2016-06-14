@@ -1,25 +1,5 @@
 
 <h3>Task Management</h3>
-<!--
-<ul class="heroes">
-    <li *ngFor="let task of tasks" (click)="onSelect(task)" [class.selected]="task === selectedHero">
-    <span class="hero-element">
-      <span class="badge">{{task.Id}}</span> {{task.Subject}}
-    </span>
-        <button class="delete-button" (click)="delete(hero, $event)">Delete</button>
-    </li>
-</ul>
-<button (click)="addHero()">Add New Hero</button>
-<div *ngIf="addingHero">
-    <my-hero-detail (close)="close($event)"></my-hero-detail>
-</div>
-<div *ngIf="selectedHero">
-    <h2>
-        {{selectedHero.Subject | uppercase}} is my hero
-    </h2>
-    <button (click)="gotoDetail()">View Details</button>
-</div>
--->
 <div class="container-fluid new-task">
     <form class="form-horizontal" (ngSubmit)="addNewTask()" #heroForm="ngForm">
         <fieldset>
@@ -61,7 +41,7 @@
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let task of tasks; let i = index" (click)="gotoDetail(task.Id)" style="cursor: pointer">
+    <tr *ngFor="let task of tasks; let i = index" (click)="gotoDetail(task.Id)" class="active" style="cursor: pointer">
         <td>{{i+1}}</td>
         <td>{{task.Subject}}</td>
         <td>{{task.CreatedDate  | date:"MM/dd/yyyy"}}</td>
